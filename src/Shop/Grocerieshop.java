@@ -114,20 +114,16 @@ public class Grocerieshop {
 					 writer.write(ac);
 					 writer.write(ad);
 					 writer.write(ae);
-					} catch (Exception e) {
-			            e.printStackTrace();
-			        }
-					try {
-						FileOutputStream file = new FileOutputStream(" InvoiceHeade.txt");
+					 FileOutputStream file = new FileOutputStream(" InvoiceHeade.txt");
 						ObjectOutputStream out = new ObjectOutputStream (file);
 						
 					out.close();
 					file.close();
 					System.out.println("serialized and saved");
-						
-					}catch (Exception e) {
-						e.printStackTrace();
-					}
+					} catch (Exception e) {
+			            e.printStackTrace();
+			        }
+					
 				}
 				else if (b == 2) {
 					

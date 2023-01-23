@@ -1,6 +1,8 @@
 package Shop;
 
-public class Product  {
+import java.io.Serializable;
+
+public class Product implements Serializable  {
 	
 	private int itemID;
 	private String itemname;
@@ -8,6 +10,7 @@ public class Product  {
 	private int quantity;
 	private int amountprice;
 	
+
 	public int getItemID() {
 		return itemID;
 	}

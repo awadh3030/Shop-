@@ -1,8 +1,10 @@
 package Shop;
 
 import java.io.BufferedReader;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -27,14 +29,8 @@ public class Grocerieshop {
 			
 
 			int i = sc.nextInt();
-			switch (i) {
-			
-			
-			
-			
+			switch (i) {	
 			case 1:
-
-
 					System.out.println(" 1 Load Data");
 					System.out.println(" 2 Set Shop Name");
 					System.out.println(" 3 Set Invoice Header");
@@ -101,6 +97,37 @@ public class Grocerieshop {
 				int b = sc.nextInt();
 				if (b == 1) {
 					
+					try {
+					System.out.println(" item ID");
+					int aa = sc.nextInt();
+					System.out.println(" item name");
+					int ab = sc.nextInt();
+					System.out.println(" unit price item");
+					int ac = sc.nextInt();
+					System.out.println(" quantity item");
+					int ad = sc.nextInt();
+					System.out.println(" amount price item");
+					int ae = sc.nextInt();
+					 FileWriter writer = new FileWriter("InvoiceHeade.txt");
+					 writer.write(aa);
+					 writer.write(ab);
+					 writer.write(ac);
+					 writer.write(ad);
+					 writer.write(ae);
+					} catch (Exception e) {
+			            e.printStackTrace();
+			        }
+					try {
+						FileOutputStream file = new FileOutputStream(" InvoiceHeade.txt");
+						ObjectOutputStream out = new ObjectOutputStream (file);
+						
+					out.close();
+					file.close();
+					System.out.println("serialized and saved");
+						
+					}catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
 				else if (b == 2) {
 					

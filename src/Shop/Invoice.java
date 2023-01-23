@@ -2,13 +2,13 @@ package Shop;
 
 public class Invoice {
 
-	 String customeName;
-	int phonenumber;
-	String invoicedate;
-	int numberofitems;
-	int totalamount;
-	int paidamount;
-	int balance;
+	private String customeName;
+	private int phonenumber;
+	private String invoicedate;
+	private int numberofitems;
+	private int totalamount;
+	private int paidamount;
+	private int balance;
 	
 	
 	

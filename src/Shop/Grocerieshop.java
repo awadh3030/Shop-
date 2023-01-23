@@ -1,14 +1,17 @@
 package Shop;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class Grocerieshop {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		
+		//Stack<String> stack = new Stack<String>();
 		boolean condition = true;
 
 		while (condition) {
@@ -24,8 +27,12 @@ public class Grocerieshop {
 			
 
 			int i = sc.nextInt();
-
-			if (i == 1) {
+			switch (i) {
+			
+			
+			
+			
+			case 1:
 
 
 					System.out.println(" 1 Load Data");
@@ -43,6 +50,7 @@ public class Grocerieshop {
 							System.out.println("Enter shop name");
 				            int shopName = sc.nextInt();
 				            FileWriter writer = new FileWriter("shopname.txt");
+				            //BufferedReader writer = new BufferedReader(new FileReader("shopname.txt"));
 				            writer.write(shopName);
 				            writer.close();
 				            System.out.println("Shop name saved to file successfully!");
@@ -79,15 +87,10 @@ public class Grocerieshop {
 						
 						
 					}
-					
-					
-		
-				
-
+					break;	
+	
 			
-	}
-			
-			else if (i == 2) {
+		case 2:
 				
 				System.out.println(" 1 Add Items");
 				System.out.println(" 2 Delete Items");
@@ -120,37 +123,41 @@ public class Grocerieshop {
 					
 				}
 				
-			}
-			else if (i == 3) {
+				break;
+		case 3:
 				
 				
 				
-			}
-			else if (i == 4) {
-				
-				
-				
-			}
-			else if (i == 5) {
-				
-				
-				
-			}
-			else if (i == 6) {
-				
-				
-				
-			}else if (i == 7) {
-				
-				
-				
-			}else if (i == 8) {
-				
-				
-				
-			}
+			break;
+		case 4:
+			
+			
+			
+			break;
+		case 5:
+			
+			
+			
+			break;
+		
+		case 6:
+			
+			
+			
+			break;
+		case 7:
+			
+			
+			
+			break;
+		case 8:
+			
+			
+			
+			break;
 			
 			
 		}
+}
 }
 }

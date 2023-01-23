@@ -1,5 +1,6 @@
 package Shop;
 
+import java.io.FileWriter;
 import java.util.Scanner;
 
 public class Grocerieshop {
@@ -38,12 +39,39 @@ public class Grocerieshop {
 					}
 					else if (l == 2) {
 						
-						
+						try {
+							System.out.println("Enter shop name");
+				            int shopName = sc.nextInt();
+				            FileWriter writer = new FileWriter("shopname.txt");
+				            writer.write(shopName);
+				            writer.close();
+				            System.out.println("Shop name saved to file successfully!");
+				        } catch (Exception e) {
+				            e.printStackTrace();
+				        }
 						
 					}
 					else if (l == 3) {
 						
-						
+						try {
+							System.out.println("Enter Tel");
+				            int InvoiceHeade = sc.nextInt();
+				            System.out.println("Enter Fax  ");
+				            int InvoiceHeade1 = sc.nextInt();
+				            System.out.println("Enter Email");
+				            int InvoiceHeade2 = sc.nextInt();
+				            System.out.println("Enter Website");
+				            int InvoiceHeade3 = sc.nextInt();
+				            FileWriter writer = new FileWriter("InvoiceHeade.txt");
+				            writer.write(InvoiceHeade);
+				            writer.write(InvoiceHeade1);
+				            writer.write(InvoiceHeade2);
+				            writer.write(InvoiceHeade3);
+				            writer.close();
+				            System.out.println("Shop name saved to file successfully!");
+				        } catch (Exception e) {
+				            e.printStackTrace();
+				        }
 						
 					}
 					else if (l == 4) {

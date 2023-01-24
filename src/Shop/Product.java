@@ -2,7 +2,7 @@ package Shop;
 
 import java.io.Serializable;
 
-public class Product implements Serializable  {
+public class Product   {
 	
 	private int itemID;
 	private String itemname;

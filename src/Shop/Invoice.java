@@ -9,6 +9,10 @@ public class Invoice {
 	private int totalamount;
 	private int paidamount;
 	private int balance;
+	
+	Product Product = new Product();
+	
+	
 	public String getCustomeName() {
 		return customeName;
 	}

@@ -8,6 +8,8 @@ import java.io.ObjectOutputStream;
 import java.util.Scanner;
 import java.util.Stack;
 
+
+
 public class Grocerieshop {
 
 	public static void main(String[] args) {
@@ -17,7 +19,9 @@ public class Grocerieshop {
 		boolean condition = true;
 
 		while (condition) {
-
+			
+			Invoice Invoice = new Invoice();
+			
 			System.out.println("1 Shop Settings");
 			System.out.println("2 Manage Shop Items");
 			System.out.println("3 Create New Invoice");
@@ -114,11 +118,7 @@ public class Grocerieshop {
 					 writer.write(ac);
 					 writer.write(ad);
 					 writer.write(ae);
-					 FileOutputStream file = new FileOutputStream(" InvoiceHeade.txt");
-						ObjectOutputStream out = new ObjectOutputStream (file);
-						
-					out.close();
-					file.close();
+					 writer.close();
 					System.out.println("serialized and saved");
 					} catch (Exception e) {
 			            e.printStackTrace();
@@ -150,6 +150,45 @@ public class Grocerieshop {
 		case 3:
 				
 				
+			System.out.println("customer Name");
+            String Invoice0 = sc.next();
+            Invoice.setCustomeName(Invoice0);
+            System.out.println("phone number");
+            int Invoice1 = sc.nextInt();
+            Invoice.setPhonenumber(Invoice1);
+            System.out.println("invoicedate");
+            int Invoice2 = sc.nextInt();
+            Invoice.setNumberofitems(Invoice2);
+            System.out.println("numberofitems");
+            int Invoice3 = sc.nextInt();
+            Invoice.Product.setItemID(i);
+        		System.out.println("itemname");
+	            String item = sc.next();
+	            Invoice.Product.setItemname(item);
+	            System.out.println("unit price");
+	            int item1 = sc.nextInt();
+	            Invoice.Product.setUnitprice(item1);
+	            System.out.println("quantity");
+	            int item2 = sc.nextInt();
+	            Invoice.Product.setQuantity(item2);
+	            System.out.println("amountprice");
+	            int item3 = sc.nextInt();
+	            Invoice.Product.setAmountprice(item3);
+            System.out.println("totalamount");
+            int Invoice4 = sc.nextInt();
+            Invoice.setTotalamount(Invoice4);
+            System.out.println("paidamount");
+            int Invoice5 = sc.nextInt();
+            Invoice.setPaidamount(Invoice5);
+            System.out.println("balance");
+            int Invoice6 = sc.nextInt();
+            Invoice.setBalance(Invoice6);
+           
+			
+			
+			
+			
+			
 				
 			break;
 		case 4:

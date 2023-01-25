@@ -33,6 +33,7 @@ public class Grocerieshop {
 		int count5=0;
 		int count6=0;
 		int count7=0;
+		
 		int count8=0;
 		int count9=0;
 		
@@ -67,17 +68,17 @@ public class Grocerieshop {
 					if (l == 1) {
 						
 						
+//						
+//						for (int ii = 0; ii < stack2.size(); ii++) {
+//				            System.out.println(stack2.pop());
+//						}
+//						
+//						for (int iii = 0; iii < stack.size(); iii++) {
+//				            System.out.println(stack.pop());
+//						}
 						
-						for (int ii = 0; ii < stack2.size(); ii++) {
-				            System.out.println(stack2.pop());
-						}
-						
-						for (int iii = 0; iii < stack.size(); iii++) {
-				            System.out.println(stack.pop());
-						}
-						
-						
-						
+						System.out.println(stack2);
+						System.out.println(stack);
 						
 					}
 					else if (l == 2) {
@@ -167,6 +168,8 @@ public class Grocerieshop {
 					   }
 					count8++;
 				}
+				
+				
 				else if (b == 2) {
 					
 					System.out.println("Enter number of Dlete idItem");
@@ -183,9 +186,10 @@ public class Grocerieshop {
 					
 				}
 				else if (b == 4) {
-					for (int ii = 0; ii < stack2.size(); ii++) {
-			            System.out.println(stack2.pop());
-					}
+//					for (int ii = 0; ii < stack2.size(); ii++) {
+//			            System.out.println(stack2.pop());
+//					}
+					  System.out.println(stack2);
 					
 				}
 				else if (b == 5) {
@@ -335,12 +339,12 @@ public class Grocerieshop {
 			break;
 		case 8:
 			
-			System.out.println("Are you sure you want to exit? press YES and 2 for NO ");
+			System.out.println("Are you sure you want to exit? press 1 YES and 2 for NO ");
 	
 			 int s=sc.nextInt();
 			 if(s==1) {
 			
-			 condition= false;
+			 condition = false;
 			 }
 			 else {
 				 

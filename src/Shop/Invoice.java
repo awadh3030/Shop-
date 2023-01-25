@@ -1,6 +1,8 @@
 package Shop;
 
-public class Invoice {
+import java.io.Serializable;
+
+public class Invoice implements Serializable {
 
 	private String customeName;
 	private int phonenumber;
@@ -11,7 +13,6 @@ public class Invoice {
 	private int balance;
 	
 	Product Product = new Product();
-	
 	
 	public String getCustomeName() {
 		return customeName;

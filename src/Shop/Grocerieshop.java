@@ -21,7 +21,7 @@ public class Grocerieshop {
 		
 		//ArrayList<Integer> list = new ArrayList<Integer>();
 		 
-		//Stack<String> stack1 = new Stack<String>();
+		Stack<String> stack1 = new Stack<String>();
 		Stack<String> stack2 = new Stack<String>();
 		Stack<String> stack = new Stack<String>();
 		
@@ -33,7 +33,7 @@ public class Grocerieshop {
 		int count5=0;
 		int count6=0;
 		int count7=0;
-		
+		int Invoice1 =0;
 		int count8=0;
 		int count9=0;
 		
@@ -180,8 +180,14 @@ public class Grocerieshop {
 				}
 				else if (b == 3) {
 					
-					
 
+					int itemToChange= sc.nextInt();
+					 stack2.removeElementAt(itemToChange);
+					 System.out.println("Entert new product price: ");
+					 Double product= sc.nextDouble();
+					 Invoice.Product.setUnitprice(itemToChange);
+					 String newValue= Double.toString(product);
+					 stack2.push("Price: "+newValue);
 		
 					
 				}
@@ -207,67 +213,67 @@ public class Grocerieshop {
             String Invoice0 = sc.next();
             Invoice.setCustomeName(Invoice0);
             stack.push("customer Name:"+Invoice0);
-            
+            stack1.push("customer Name:"+Invoice0);
             System.out.println("phone number");
-            int Invoice1 = sc.nextInt();
+            Invoice1 = sc.nextInt();
             Invoice.setPhonenumber(Invoice1);
             String Invoic1 = Integer.toString(Invoice1);
             stack.push("phone number"+Invoic1);
-            
+            stack1.push("phone number"+Invoic1);
             System.out.println("invoice date");
             int Invoice2 = sc.nextInt();
             Invoice.setNumberofitems(Invoice2);
             String Invoic2 = Integer.toString(Invoice2);
             stack.push("invoice date"+Invoic2);
-            
+            stack1.push("invoice date"+Invoic2);
 	            System.out.println("id items");
 	            int Invoice3 = sc.nextInt();
 	            Invoice.Product.setItemID(Invoice3);
 	            String Invoic3 = Integer.toString(Invoice3);
 	            stack.push("id items"+Invoic3);
-            
+	            stack1.push("id items"+Invoic3);
         		System.out.println("item name");
 	            String item = sc.next();
 	            Invoice.Product.setItemname(item);
 	            stack.push("item name"+item);
-	            
+	            stack1.push("item name"+item);
 	            System.out.println("unit price");
 	            int item1 = sc.nextInt();
 	            Invoice.Product.setUnitprice(item1);
 	            String item11 = Integer.toString(item1);
 	            stack.push("unit price:"+item11);
-	            
+	            stack1.push("unit price:"+item11);
 	            System.out.println("quantity");
 	            int item2 = sc.nextInt();
 	            Invoice.Product.setQuantity(item2);
 	            String item22 = Integer.toString(item2);
 	            stack.push("quantity"+item22);
-	            
+	            stack1.push("quantity"+item22);
 	            System.out.println("amount price");
 	            int item3 = sc.nextInt();
 	            Invoice.Product.setAmountprice(item3);
 	            String item33 = Integer.toString(item3);
 	            stack.push("amount price:"+item33);
-
+	            stack1.push("amount price:"+item33);
 	            
             System.out.println("total amount");
             int Invoice4 = sc.nextInt();
             Invoice.setTotalamount(Invoice4);
             String Invoice44 = Integer.toString(Invoice4);
             stack.push("total amount:"+Invoice44);
-            
+            stack1.push("total amount:"+Invoice44);
             System.out.println("paid amount");
             int Invoice5 = sc.nextInt();
             Invoice.setPaidamount(Invoice5);
             String Invoice55 = Integer.toString(Invoice5);
             stack.push("paid amount:"+Invoice55);
-            
+            stack1.push("paid amount:"+Invoice55);
             System.out.println("balance");
             int Invoice6 = sc.nextInt();
             Invoice.setBalance(Invoice6);
             String Invoice66 = Integer.toString(Invoice6);
             stack.push("balance:"+Invoice66);
-           
+            stack1.push("balance:"+Invoice66);
 			
              
 			    //  BufferedWriter writer = new BufferedWriter(new FileWriter("Invoice.txt"));  
@@ -320,8 +326,7 @@ public class Grocerieshop {
 			break;
 		
 		case 6:
-			
-			
+			System.out.print(stack1+"\n");
 			count5++;
 			break;
 		case 7:

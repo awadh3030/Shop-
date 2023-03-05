@@ -243,12 +243,41 @@ public class Grocerieshop {
 						String amount = Integer.toString(ae);
 						stack2.push("amount price:" + amount);
 
-						FileOutputStream file = new FileOutputStream("item.txt");
-						ObjectOutputStream out = new ObjectOutputStream(file);
-						out.writeObject(Invoice.Product);
-						out.close();
-						file.close();
-						System.out.println("serialized and saved");
+						//FileOutputStream file = new FileOutputStream("item.txt");
+						//ObjectOutputStream out = new ObjectOutputStream(file);
+						//out.writeObject(Invoice.Product);
+						//out.close();
+						//file.close();
+						//System.out.println("serialized and saved");
+						
+						
+		    	        
+						
+						String sql1 = "INSERT INTO AddItems (item_ID, item_name,unit_price_item, quantity_item, amount_price_item) VALUES('" + aa
+					            + "','" + ab + "','" + ac + "','" + ad + "','" + ae + "')";
+
+					        int m = st.executeUpdate(sql1);
+					        
+					        
+					        if (m >= 1) {
+					            System.out.println("inserted successfully : " + sql1);
+					        } else {
+					            System.out.println("insertion failed");
+					        }
+
+					        String sql2 = "SELECT * FROM AddItems";
+
+					        ResultSet resultSet = st.executeQuery(sql1);
+					        while (resultSet.next()) {
+					            System.out.println(resultSet.getString("item_ID"));
+					            System.out.println(resultSet.getString("item_name"));
+					            System.out.println(resultSet.getString("unit_price_item"));
+					            System.out.println(resultSet.getString("quantity_item"));
+					            System.out.println(resultSet.getString("amount_price_item"));
+					         
+					        }
+												
+						
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
@@ -293,41 +322,48 @@ public class Grocerieshop {
 					Invoice.setCustomeName(Invoice0);
 					stack.push("customer Name:" + Invoice0);
 					stack1.push("customer Name:" + Invoice0);
+					
 					System.out.println("phone number");
 					int Invoice1 = sc.nextInt();
 					Invoice.setPhonenumber(Invoice1);
 					String Invoic1 = Integer.toString(Invoice1);
 					stack.push("phone number" + Invoic1);
 					stack1.push("phone number" + Invoic1);
+					
 					System.out.println("invoice date");
 					int Invoice2 = sc.nextInt();
 					Invoice.setNumberofitems(Invoice2);
 					String Invoic2 = Integer.toString(Invoice2);
 					stack.push("invoice date" + Invoic2);
 					stack1.push("invoice date" + Invoic2);
+					
 					System.out.println("id items");
 					int Invoice3 = sc.nextInt();
 					Invoice.Product.setItemID(Invoice3);
 					String Invoic3 = Integer.toString(Invoice3);
 					stack.push("id items" + Invoic3);
 					stack1.push("id items" + Invoic3);
+					
 					System.out.println("item name");
 					String item = sc.next();
 					Invoice.Product.setItemname(item);
 					stack.push("item name" + item);
 					stack1.push("item name" + item);
+					
 					System.out.println("unit price");
 					int item1 = sc.nextInt();
 					Invoice.Product.setUnitprice(item1);
 					String item11 = Integer.toString(item1);
 					stack.push("unit price:" + item11);
 					stack1.push("unit price:" + item11);
+					
 					System.out.println("quantity");
 					int item2 = sc.nextInt();
 					Invoice.Product.setQuantity(item2);
 					String item22 = Integer.toString(item2);
 					stack.push("quantity" + item22);
 					stack1.push("quantity" + item22);
+					
 					System.out.println("amount price");
 					int item3 = sc.nextInt();
 					Invoice.Product.setAmountprice(item3);
@@ -341,12 +377,14 @@ public class Grocerieshop {
 					String Invoice44 = Integer.toString(Invoice4);
 					stack.push("total amount:" + Invoice44);
 					stack1.push("total amount:" + Invoice44);
+					
 					System.out.println("paid amount");
 					int Invoice5 = sc.nextInt();
 					Invoice.setPaidamount(Invoice5);
 					String Invoice55 = Integer.toString(Invoice5);
 					stack.push("paid amount:" + Invoice55);
 					stack1.push("paid amount:" + Invoice55);
+					
 					System.out.println("balance");
 					int Invoice6 = sc.nextInt();
 					Invoice.setBalance(Invoice6);
@@ -366,12 +404,60 @@ public class Grocerieshop {
 //			      System.out.println("An error occurred.");
 //			      e.printStackTrace();  
 //			    }  
-					FileOutputStream file = new FileOutputStream("Invoice.txt");
-					ObjectOutputStream out = new ObjectOutputStream(file);
-					out.writeObject(Invoice);
-					out.close();
-					file.close();
-					System.out.println("serialized and saved");
+//						FileOutputStream file = new FileOutputStream("Invoice.txt");
+//						ObjectOutputStream out = new ObjectOutputStream(file);
+//						out.writeObject(Invoice);
+//						out.close();
+//						file.close();
+//						System.out.println("serialized and saved");
+					
+					
+					String sql1 = "INSERT INTO Invoice (customer_Name, phone_number,invoice_date, "
+							+ "id_items, item_name,unit_price,quantity,amount_price,"
+							+ "total_amount,paid_amount,balance) VALUES('" + Invoice0
+				            + "','" + Invoice1 + "','" + Invoice2 + "','" 
+							+ Invoice3 + "','" + item + "','" 
+				            + item1 + "','" + item2 + "','" + item3 + "','" 
+							+ Invoice4 +  "','" + Invoice5 + "','" + Invoice6 +"')";
+
+				        int m = st.executeUpdate(sql1);
+				        
+				        
+				        if (m >= 1) {
+				            System.out.println("inserted successfully : " + sql1);
+				        } else {
+				            System.out.println("insertion failed");
+				        }
+
+				        String sql2 = "SELECT * FROM Invoice";
+
+				        ResultSet resultSet = st.executeQuery(sql1);
+				        while (resultSet.next()) {
+				            System.out.println(resultSet.getString("item_ID"));
+				            System.out.println(resultSet.getString("item_name"));
+				            System.out.println(resultSet.getString("unit_price_item"));
+				            System.out.println(resultSet.getString("quantity_item"));
+				            System.out.println(resultSet.getString("amount_price_item"));
+				            
+				            
+				         
+				        }
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

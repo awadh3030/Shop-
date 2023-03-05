@@ -1,6 +1,6 @@
 package Shop;
 
-
+import java.sql.*;
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -14,6 +14,24 @@ import java.util.Stack;
 public class Grocerieshop {
 
 	public static void main(String[] args) {
+		
+
+		 String url = "jdbc:sqlserver://localhost:1433;" +
+		            "databaseName=groceriesshop;" +
+		            "encrypt=true;" +
+		            "trustServerCertificate=true";
+		 
+		 
+		    String user = "sa";
+		    String pass = "root";
+		    
+		    Connection con = null;
+		    try {
+		        Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+		        DriverManager.registerDriver(driver);
+		        con = DriverManager.getConnection(url, user, pass);
+		        Statement st = con.createStatement();
+		        
 		Scanner sc = new Scanner(System.in);
 
 		// ArrayList<Integer> list = new ArrayList<Integer>();
@@ -54,18 +72,46 @@ public class Grocerieshop {
 				
 				String sql01= "CREATE TABLE shop ("
 		        		 +"shop_name Integer Primary Key,"
-		        		 + "room_type_name String not null,"
+		        		 + "Email String not null,"
 		        		 + "Tel int, "
 		        		 + "Fax VARCHAR(250), "
 		        		 + "Website VARCHAR(250))";
 		                
 		        		 st.executeUpdate(sql01);
 				
-		        		 
+
+		        		 String sql02=  "CREATE TABLE AddItems("
+		        				 + " item_ID INTEGER PRIMARY KEY,"
+		        				 + " item_name INTEGER "
+		        				 + " unit_price_item INTEGER "
+		        				 + " quantity_item VARCHAR(255) ,"
+		        				 + " amount_price_item VARCHAR(255),"		        				 
+		        				 + ")";
+
+		    	        		 st.executeUpdate(sql02);
+		    	        		 
+		    	        		 
+		    	        		 
+		    	        		 String sql03= " CREATE TABLE Invoice ("
+		    	    	        		 + " customer_Name INTEGER PRIMARY KEY,"
+		    	    	        		 + " phone number TEXT NOT NULL,"
+		    	    	        		 + " invoice date TEXT NOT NULL,"
+		    	    	        		 + " id_items INTEGER NOT NULL,"
+		    	    	        		 + " item_name NOT NULL,"
+		    	    	        		 + " unit_price ,"
+		    	    	        		 + " quantity INTEGER ,"
+		    	    	        		 + " amount_price VARCHAR(255) NOT NULL,"
+		    	    	        		 + " updated_date VARCHAR(255),"
+		    	    	        		 + " total_amount int"
+		    	    	        		 + "  paid_amount int"
+		    	    	        		 + "  balance int"		    	    	        		
+		    	    	        		 + ")";
+		    	    	        		 
+		    	    	        		 
+		    	    	        		 st.executeUpdate(sql03);
 		        		 
 
-		        		 
-				
+		    	    	        		 condition = true;
 				break;
 			case 1:
 				System.out.println(" 1 Load Data");
@@ -89,11 +135,16 @@ public class Grocerieshop {
 					System.out.println(stack);
 
 				} else if (l == 2) {
+					
+				} else if (l == 3) {
+					
+					
+					
+				
 					System.out.println("Enter shop name");
 					String shop1 = sc.next();
 					stack.push("shop name" + shop1);
-				} else if (l == 3) {
-
+					
 					System.out.println("Enter Tel");
 					int Tel = sc.nextInt();
 					String Tell = Integer.toString(Tel);
@@ -105,9 +156,41 @@ public class Grocerieshop {
 					System.out.println("Enter Email");
 					String Email = sc.next();
 					stack.push("Email:" + Email);
+					
 					System.out.println("Enter Website");
 					String Website = sc.next();
 					stack.push("Website:" + Website);
+					
+					
+					
+					
+			
+	                
+					
+					  String sql0 = "INSERT INTO Hotels (shop_name, Email,Tel, Fax, Website) VALUES('" + shop1
+					            + "','" + Email + "','" + Tel + "','" + Fax + "','" + Website + "')";
+
+					        int m = st.executeUpdate(sql0);
+					        
+					        
+					        if (m >= 1) {
+					            System.out.println("inserted successfully : " + sql0);
+					        } else {
+					            System.out.println("insertion failed");
+					        }
+
+					        String sql1 = "SELECT * FROM shop";
+
+					        ResultSet resultSet = st.executeQuery(sql1);
+					        while (resultSet.next()) {
+					            System.out.println(resultSet.getString("shop_name"));
+					            System.out.println(resultSet.getString("Email"));
+					            System.out.println(resultSet.getString("Tel"));
+					            System.out.println(resultSet.getString("Fax"));
+					            System.out.println(resultSet.getString("Website"));
+					         
+					        }
+					        con.close();
 				}
 
 				else if (l == 4) {
@@ -349,5 +432,12 @@ public class Grocerieshop {
 
 			}
 		}
+	}catch (Exception ex) {
+	        System.err.println(ex);
+	}
 	}
 }
+
+
+		    
+		    

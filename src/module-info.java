@@ -6,4 +6,5 @@
  *
  */
 module Shop {
+	requires java.sql;
 }

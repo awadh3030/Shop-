@@ -30,7 +30,6 @@ public class Grocerieshop {
 		int count5 = 0;
 		int count6 = 0;
 		int count7 = 0;
-
 		int count8 = 0;
 		int count9 = 0;
 
@@ -39,7 +38,7 @@ public class Grocerieshop {
 		while (condition) {
 
 			Invoice Invoice = new Invoice();
-
+			System.out.println("0 Shop table Settings");
 			System.out.println("1 Shop Settings");
 			System.out.println("2 Manage Shop Items");
 			System.out.println("3 Create New Invoice");
@@ -51,6 +50,23 @@ public class Grocerieshop {
 
 			int i = sc.nextInt();
 			switch (i) {
+			case 0:
+				
+				String sql01= "CREATE TABLE shop ("
+		        		 +"shop_name Integer Primary Key,"
+		        		 + "room_type_name String not null,"
+		        		 + "Tel int, "
+		        		 + "Fax VARCHAR(250), "
+		        		 + "Website VARCHAR(250))";
+		                
+		        		 st.executeUpdate(sql01);
+				
+		        		 
+		        		 
+
+		        		 
+				
+				break;
 			case 1:
 				System.out.println(" 1 Load Data");
 				System.out.println(" 2 Set Shop Name");

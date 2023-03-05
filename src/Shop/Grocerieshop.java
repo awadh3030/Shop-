@@ -71,21 +71,21 @@ public class Grocerieshop {
 			case 0:
 				
 				String sql01= "CREATE TABLE shop ("
-		        		 +"shop_name Integer Primary Key,"
-		        		 + "Email String not null,"
+		        		 +"shop_name  VARCHAR(50) Primary Key,"
+		        		 + "Email varchar(50) not null,"
 		        		 + "Tel int, "
-		        		 + "Fax VARCHAR(250), "
-		        		 + "Website VARCHAR(250))";
+		        		 + "Fax VARCHAR(50), "
+		        		 + "Website VARCHAR(50))";
 		                
 		        		 st.executeUpdate(sql01);
 				
 
 		        		 String sql02=  "CREATE TABLE AddItems("
-		        				 + " item_ID INTEGER PRIMARY KEY,"
-		        				 + " item_name INTEGER "
-		        				 + " unit_price_item INTEGER "
-		        				 + " quantity_item VARCHAR(255) ,"
-		        				 + " amount_price_item VARCHAR(255),"		        				 
+		        				 + " item_ID int PRIMARY KEY,"
+		        				 + " item_name VARCHAR(50),"
+		        				 + " unit_price_item int ,"
+		        				 + " quantity_item int ," 
+		        				 + " amount_price_item int,"		        				 
 		        				 + ")";
 
 		    	        		 st.executeUpdate(sql02);
@@ -93,18 +93,18 @@ public class Grocerieshop {
 		    	        		 
 		    	        		 
 		    	        		 String sql03= " CREATE TABLE Invoice ("
-		    	    	        		 + " customer_Name INTEGER PRIMARY KEY,"
-		    	    	        		 + " phone number TEXT NOT NULL,"
-		    	    	        		 + " invoice date TEXT NOT NULL,"
-		    	    	        		 + " id_items INTEGER NOT NULL,"
-		    	    	        		 + " item_name NOT NULL,"
-		    	    	        		 + " unit_price ,"
-		    	    	        		 + " quantity INTEGER ,"
-		    	    	        		 + " amount_price VARCHAR(255) NOT NULL,"
+		    	    	        		 + " customer_Name VARCHAR(50) PRIMARY KEY,"
+		    	    	        		 + " phone_number int,"
+		    	    	        		 + " invoice_date VARCHAR(255),"
+		    	    	        		 + " id_items INTEGER ,"
+		    	    	        		 + " item_name VARCHAR(50) ,"
+		    	    	        		 + " unit_price DECIMAL(10,2) ,"
+		    	    	        		 + " quantity int ,"
+		    	    	        		 + " amount_price DECIMAL(10,2),"
 		    	    	        		 + " updated_date VARCHAR(255),"
-		    	    	        		 + " total_amount int"
-		    	    	        		 + "  paid_amount int"
-		    	    	        		 + "  balance int"		    	    	        		
+		    	    	        		 + " total_amount DECIMAL(10,2) ,"
+		    	    	        		 + "  paid_amount DECIMAL(10,2) ,"
+		    	    	        		 + "  balance DECIMAL(10,2) ,"		    	    	        		
 		    	    	        		 + ")";
 		    	    	        		 
 		    	    	        		 
@@ -167,7 +167,7 @@ public class Grocerieshop {
 			
 	                
 					
-					  String sql0 = "INSERT INTO Hotels (shop_name, Email,Tel, Fax, Website) VALUES('" + shop1
+					  String sql0 = "INSERT INTO shop (shop_name, Email,Tel, Fax, Website) VALUES('" + shop1
 					            + "','" + Email + "','" + Tel + "','" + Fax + "','" + Website + "')";
 
 					        int m = st.executeUpdate(sql0);
@@ -190,7 +190,7 @@ public class Grocerieshop {
 					            System.out.println(resultSet.getString("Website"));
 					         
 					        }
-					        con.close();
+					       
 				}
 
 				else if (l == 4) {
@@ -437,6 +437,7 @@ public class Grocerieshop {
 	}
 	}
 }
+
 
 
 		    

@@ -14,8 +14,9 @@ import java.util.Stack;
 public class Grocerieshop {
 
 	public static void main(String[] args) {
-		
-
+		try {
+			Scanner sc = new Scanner(System.in);
+			
 		 String url = "jdbc:sqlserver://localhost:1433;" +
 		            "databaseName=groceriesshop;" +
 		            "encrypt=true;" +
@@ -25,14 +26,26 @@ public class Grocerieshop {
 		    String user = "sa";
 		    String pass = "root";
 		    
+		    
+
+			System.out.println("Enter username");
+			String username = sc.next();
+
+			System.out.println("Enter password");
+			String password = sc.next();
+		    
+		    if (username.equals(user) && password.equals(pass)) {
+		    	
+		    
+		    
 		    Connection con = null;
-		    try {
+		    
 		        Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
 		        DriverManager.registerDriver(driver);
 		        con = DriverManager.getConnection(url, user, pass);
 		        Statement st = con.createStatement();
 		        
-		Scanner sc = new Scanner(System.in);
+		
 
 		// ArrayList<Integer> list = new ArrayList<Integer>();
 
@@ -295,7 +308,7 @@ public class Grocerieshop {
 
 					String A="DELETE FROM AddItems WHERE item_ID = " + rowsDeleted;
 
-		            int update = st.executeUpdate(A);
+		           int update = st.executeUpdate(A);
   
 		            
 				} else if (b == 3) {
@@ -466,21 +479,7 @@ public class Grocerieshop {
 				            
 				            
 				         
-				        }
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
+				        }	
 					
 					
 				} catch (Exception e) {
@@ -543,11 +542,19 @@ public class Grocerieshop {
 
 			}
 		}
-	}catch (Exception ex) {
+		
+		
+		    }else {
+		    	System.out.println("worng  username and password  ");
+		    }
+	
+		    
+}catch (Exception ex) {
 	        System.err.println(ex);
 	}
 	}
 }
+
 
 
 

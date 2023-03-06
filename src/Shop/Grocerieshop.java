@@ -292,33 +292,38 @@ public class Grocerieshop {
 
 					System.out.println("Enter DELETE FROM AddItems WHERE id = ");
 					String rowsDeleted = sc.next();
-					
-//					 system.out.print("Enter item id you want to remove it: ");
-//					 int delete= sca.nextInt();
-//					 String d= "DELETE FROM Items WHERE Product_id= "+delete;
-//					 int update= st.executeUpdate(d);
-//			            
-				
-			            
-			            
-					
+
 					String A="DELETE FROM AddItems WHERE item_ID = " + rowsDeleted;
 
 		            int update = st.executeUpdate(A);
-		            
-		            
-		            
-		            
+  
 		            
 				} else if (b == 3) {
 
-					int itemToChange = sc.nextInt();
-					stack2.removeElementAt(itemToChange);
-					System.out.println("Entert new product price: ");
-					Double product = sc.nextDouble();
-					Invoice.Product.setUnitprice(itemToChange);
-					String newValue = Double.toString(product);
-					stack2.push("Price: " + newValue);
+//					int itemToChange = sc.nextInt();
+//					stack2.removeElementAt(itemToChange);
+//					System.out.println("Entert new product price: ");
+//					Double product = sc.nextDouble();
+//					Invoice.Product.setUnitprice(itemToChange);
+//					String newValue = Double.toString(product);
+//					stack2.push("Price: " + newValue);
+					
+					System.out.println("Enter UPDATE FROM AddItems WHERE id = ");
+					String UPDATE = sc.next();
+					
+					System.out.println("Enter UPDATE FROM AddItems WHERE unit_price_item = ");
+					String UPDATE1 = sc.next();
+					
+					
+					
+					String sql = "UPDATE AddItems SET unit_price_item = " + UPDATE1+"WHERE item_ID = "+UPDATE; 
+					
+		            int UPDATE11 = st.executeUpdate(sql);
+		            
+		            System.out.println(UPDATE11 + " rows deleted.");
+					
+					
+					
 
 				} else if (b == 4) {
 //					for (int ii = 0; ii < stack2.size(); ii++) {

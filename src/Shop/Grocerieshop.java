@@ -100,8 +100,7 @@ public class Grocerieshop {
 		    	    	        		 + " item_name VARCHAR(50) ,"
 		    	    	        		 + " unit_price DECIMAL(10,2) ,"
 		    	    	        		 + " quantity int ,"
-		    	    	        		 + " amount_price DECIMAL(10,2),"
-		    	    	        		 + " updated_date VARCHAR(255),"
+		    	    	        		 + " amount_price DECIMAL(10,2),"	    	    	        		
 		    	    	        		 + " total_amount DECIMAL(10,2) ,"
 		    	    	        		 + "  paid_amount DECIMAL(10,2) ,"
 		    	    	        		 + "  balance DECIMAL(10,2) ,"		    	    	        		
@@ -286,10 +285,31 @@ public class Grocerieshop {
 
 				else if (b == 2) {
 
-					System.out.println("Enter number of Dlete idItem");
-					int Dlete = sc.nextInt();
-					stack2.remove(Dlete);
+//														System.out.println("Enter number of Dlete idItem");
+//														int Dlete = sc.nextInt();
+//														stack2.remove(Dlete);
+					
 
+					System.out.println("Enter DELETE FROM AddItems WHERE id = ");
+					String rowsDeleted = sc.next();
+					
+//					 system.out.print("Enter item id you want to remove it: ");
+//					 int delete= sca.nextInt();
+//					 String d= "DELETE FROM Items WHERE Product_id= "+delete;
+//					 int update= st.executeUpdate(d);
+//			            
+				
+			            
+			            
+					
+					String A="DELETE FROM AddItems WHERE item_ID = " + rowsDeleted;
+
+		            int update = st.executeUpdate(A);
+		            
+		            
+		            
+		            
+		            
 				} else if (b == 3) {
 
 					int itemToChange = sc.nextInt();

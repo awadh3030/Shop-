@@ -11,24 +11,42 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Stack;
 
+/**
+*
+* @author Lenovo
+*
+*         This class is responsible for querying the database
+*
+*/
 public class Grocerieshop {
-
+	/**
+	 * This method is doing something ...... bla bla bla
+	 *
+	 * @param args: External arguments received in the form of strings. These can be
+	 *              used inside our static method.
+	 * @throws IOException
+	 */
 	public static void main(String[] args) {
 		try {
 			Scanner sc = new Scanner(System.in);
-
+			// Follow SRP (Single Responsibility Principle). We can hand over DB access
+			// responsibility to a separate class
 			String url = "jdbc:sqlserver://localhost:1433;" + "databaseName=groceriesshop;" + "encrypt=true;"
 					+ "trustServerCertificate=true";
 
 			String user = "sa";
-			String pass = "root";
+			String pass = "root"; // Password should never be part of the source code. Maybe we can consider using
+			// environment variables here
+			// Encapsulation makes sense here. Bring the code and this data together (Form a
+			// Class)
 
 			System.out.println("Enter username");
 			String username = sc.next();
 
 			System.out.println("Enter password");
 			String password = sc.next();
-
+			// TODO: Program can be easily decompiled to know the password or even remove
+						// this check.
 			if (username.equals(user) && password.equals(pass)) {
 
 				Connection con = null;
@@ -43,7 +61,7 @@ public class Grocerieshop {
 				Stack<String> stack1 = new Stack<String>();
 				Stack<String> stack2 = new Stack<String>();
 				Stack<String> stack = new Stack<String>();
-
+				// TODO: It violates DRY (Don't repeat yourself)
 				int count0 = 0;
 				int count1 = 0;
 				int count2 = 0;
@@ -54,13 +72,13 @@ public class Grocerieshop {
 				int count7 = 0;
 				int count8 = 0;
 				int count9 = 0;
-
+				// TODO: It violates DRY (Don't repeat yourself)
 				boolean condition = true;
 
 				while (condition) {
 
 					Invoice Invoice = new Invoice();
-					System.out.println("0 Shop table Settings");
+					System.out.println("0 CREATE TABLES");
 					System.out.println("1 Shop Settings");
 					System.out.println("2 Manage Shop Items");
 					System.out.println("3 Create New Invoice");
@@ -120,7 +138,9 @@ public class Grocerieshop {
 						} else if (l == 2) {
 
 						} else if (l == 3) {
-
+							// TODO: Can avoid repetitions using a method that takes msg, type of input and
+							// reference of stack as args.
+							// TODO: Then we can simply re-use it.
 							System.out.println("Enter shop name");
 							String shop1 = sc.next();
 							stack.push("shop name" + shop1);
@@ -155,6 +175,9 @@ public class Grocerieshop {
 							String sql1 = "SELECT * FROM shop";
 
 							ResultSet resultSet = st.executeQuery(sql1);
+							// TODO: We can remove repetitive code form here
+							// ArrayList<String> colNames = new ArrayList<>();
+							// colNames.add("")
 							while (resultSet.next()) {
 								System.out.println(resultSet.getString("shop_name"));
 								System.out.println(resultSet.getString("Email"));
@@ -294,7 +317,7 @@ public class Grocerieshop {
 //					}
 							
 							
-							String sql = "select * from Invoices" ;
+							String sql = "select * from AddItems" ;
 							
 							 ResultSet resultSet = st.executeQuery(sql);
 							 while (resultSet.next())
@@ -312,7 +335,7 @@ public class Grocerieshop {
 							
 							
 							
-							System.out.println(stack2);
+						//	System.out.println(stack2);
 
 						} else if (b == 5) {
 
@@ -468,6 +491,9 @@ public class Grocerieshop {
 
 						System.out.print(stack + "\n");
 
+						
+						
+						
 						count3++;
 						break;
 
